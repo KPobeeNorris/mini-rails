@@ -33,4 +33,11 @@ RSpec.describe ActiveRecord do
     expect(rows).to be_a_kind_of(Hash)
     expect(rows.keys).to eq [:id, :title, :body, :created_at, :updated_at]
   end
+
+  it 'will find all records' do
+    post = Post.find_all.first
+    expect(post).to be_a_kind_of(Post)
+    expect(post.id).to eq 1
+    expect(post.title).to eq 'Blueberry Muffins'
+  end
 end
