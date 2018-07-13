@@ -40,4 +40,14 @@ RSpec.describe ActiveRecord do
     expect(post.id).to eq 1
     expect(post.title).to eq 'Blueberry Muffins'
   end
+
+  describe "#where" do
+    it "will find a record where there is a specific ID and where the title is not null" do
+      relation = Post.where("id = 2").where("title IS NOT NULL")
+      expect("SELECT * FROM posts WHERE id = 2 AND title IS NOT NULL").to eq relation.to_sql
+      
+      post = relation.first
+      expect(post.id).to eq 2
+    end
+  end
 end
