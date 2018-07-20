@@ -1,11 +1,13 @@
 require 'spec_helper'
 require 'active_record.rb'
+require './muffin_blog/app/models/application_record.rb'
+require './muffin_blog/app/models/post.rb'
+
 
 RSpec.describe ActiveRecord do
-
   before do
     Post.establish_connection(
-      database: "/Users/kathpobee-norris/KPN/mini-rails/test/muffin_blog/db/development.sqlite3")
+      database: "/Users/kathpobee-norris/KPN/mini-rails/muffin_blog/db/development.sqlite3")
   end
 
   describe '#intialize'do
